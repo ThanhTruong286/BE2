@@ -14,8 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['namespaces'=>'page'],function(){
+
+Route::group(['prefix' => 'public'],function (){
     Route::get('/{name?}', function ($name="welcome") {
         return view($name);
-    })->whereAlphaNumeric('name');
+    });
 });
