@@ -14,9 +14,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+Route::get('/', function(){
+    return view("welcome");
+});
 Route::group(['prefix' => 'public'],function (){
     Route::get('/{name?}', function ($name="welcome") {
         return view($name);
     });
 });
+Route::get('/{age?}', function ($age=18) {
+    return "Enough";
+})->middleware('checkAge');
+
+
+Route::post('/public/login', function ($name="",$pass=""){
+    return view('welcome');
+})->middleware("login");
