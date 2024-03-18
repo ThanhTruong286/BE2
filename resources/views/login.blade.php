@@ -1,3 +1,6 @@
+<?php 
+use App\Http\Controllers\loginController;
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -66,11 +69,13 @@ span.psw {
 }
 </style>
 </head>
+use App
 <body>
 
 <h2>Login Form</h2>
 
-<form action="<?php $_PHP_SELF ?>" method="post">
+<form action="{{ url('/process_signup') }}" method="post">
+    @csrf()
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
   <div class="imgcontainer">
     <img src="img_avatar2.png" alt="Avatar" class="avatar">
